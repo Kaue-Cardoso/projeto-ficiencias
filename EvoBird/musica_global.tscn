@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://5rrga4d3beyl"]
+
+[ext_resource type="AudioStream" uid="uid://b5ffn0v7gra4d" path="res://musica fase 1.mp3" id="1_vohvr"]
+[ext_resource type="Script" path="res://musica_global.gd" id="2_musica"]
+
+[node name="MusicaGlobal" type="Node" unique_id=1001601788]
+script = ExtResource("2_musica")
+
+[node name="Musica" type="AudioStreamPlayer2D" parent="." unique_id=1390932368]
+stream = ExtResource("1_vohvr")
+autoplay = true

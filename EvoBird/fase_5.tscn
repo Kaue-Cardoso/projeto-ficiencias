@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://150mr1wjcoyj"]
+
+[ext_resource type="Script" uid="uid://cpaj5ht2mwetg" path="res://scriptFases.gd" id="1_7s88t"]
+[ext_resource type="PackedScene" uid="uid://d0xr1vp3mxrf5" path="res://pato.tscn" id="2_3ymrk"]
+[ext_resource type="PackedScene" uid="uid://i02jt45agers" path="res://obstaculo_6.tscn" id="2_7s88t"]
+[ext_resource type="PackedScene" uid="uid://blqv2uct34ga8" path="res://creditos.tscn" id="2_ngdoj"]
+[ext_resource type="Texture2D" uid="uid://cnl78vh70mrke" path="res://fundo tempos modernos terrestre.png" id="4_of8tv"]
+[ext_resource type="FontFile" uid="uid://cqan0erc46uca" path="res://fonts/moderno/game_over.ttf" id="6_ors8i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru54l"]
+size = Vector2(3463, 41)
+
+[node name="fase 5" type="Node2D"]
+script = ExtResource("1_7s88t")
+proxima_fase = ExtResource("2_ngdoj")
+ano_para_proxima_fase = 2026
+anos_por_segundo = 10.0
+cenas_obstaculos = Array[PackedScene]([ExtResource("2_7s88t")])
+cena_jogador = ExtResource("2_3ymrk")
+
+[node name="Fundo" type="Sprite2D" parent="."]
+position = Vector2(339.5, 179.59549)
+scale = Vector2(0.37936866, 0.39593124)
+texture = ExtResource("4_of8tv")
+
+[node name="PisoFisico" type="StaticBody2D" parent="."]
+position = Vector2(147, 345)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PisoFisico"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_ru54l")
+
+[node name="TimerObstaculos" type="Timer" parent="."]
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="LabelAnos" type="Label" parent="Interface"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="SpawnTerrestre" type="Marker2D" parent="."]
+position = Vector2(724, 295)
+
+[node name="SpawnVoador" type="Marker2D" parent="."]
+position = Vector2(715, 200)
+
+[node name="Obstaculos" type="Node2D" parent="."]
+
+[node name="SpawnJogador" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(79, 282)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 110.0
+offset_top = 51.0
+offset_right = 585.0
+offset_bottom = 103.0
+theme_override_colors/font_color = Color(0.89872754, 0, 0.101672985, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("6_ors8i")
+theme_override_font_sizes/font_size = 90
+text = "Tempos Modernos"
+horizontal_alignment = 1
+vertical_alignment = 1

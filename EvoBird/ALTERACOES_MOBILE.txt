@@ -1,0 +1,88 @@
+EVOBIRD — CONTROLES POR TOQUE E PREPARAÇÃO PARA ANDROID
+=====================================================
+
+1. COMO JOGAR
+
+Ação                   Celular                 Computador
+---------------------  ----------------------  --------------------------
+Começar                Toque em Jogar          Clique em Jogar ou Espaço
+Pular                  Toque na área do jogo   Clique esquerdo ou Espaço
+Recomeçar após perder  Toque em Reiniciar      Clique em Reiniciar ou Espaço
+Recomeçar nos créditos Toque em Jogar novamente Clique no botão ou Espaço
+
+O jogo abre em paisagem no celular. Durante a partida, um toque dispara
+um pulo se a ave estiver no chão. Depois de uma colisão, a contagem para
+e o botão Reiniciar aparece. Ao acioná-lo, a partida recomeça no Jurássico,
+com a contagem restaurada para 150 milhões de anos.
+
+2. O QUE MUDOU EM CADA ARQUIVO
+
+project.godot
+  A ação pular agora aceita o clique esquerdo além da barra de Espaço.
+  A opção emulate_mouse_from_touch permite que os botões do Godot
+  recebam toques como cliques. A tela mantém a proporção original de
+  680 por 320 pixels lógicos. Aparelhos com outra proporção podem exibir
+  faixas nas bordas para manter o cenário inteiro visível.
+  O menu inicial e os dois autoloads passaram a usar caminhos res://
+  explícitos para evitar depender de identificadores em cache ao exportar.
+
+jogador.gd
+  O jogo também lê o toque diretamente no personagem. Ao encostar o
+  primeiro dedo, ele guarda um pedido de pulo até o próximo passo de
+  física. Assim, um toque rápido entre dois passos ainda pode ser lido.
+  Nesse passo, toque, clique e Espaço chegam à mesma decisão de pulo.
+  O pulo continua exigindo contato com o chão. Se o modo de voo for
+  ativado em alguma fase, segurar o toque também sustenta o comando.
+
+scriptFases.gd e fim_de_jogo.tscn
+  A fase interrompe o contador, o temporizador e os obstáculos após
+  a morte da ave. A cena Fim de jogo aparece sobre a partida e oferece
+  o botão Reiniciar. Todas as fases usam o mesmo script e essa mesma tela.
+
+button.gd, menu.tscn e creditos.tscn
+  Jogar, Reiniciar e Jogar novamente compartilham o script que restaura
+  a contagem e abre a primeira fase. Ao aparecer, o botão recebe foco,
+  ou seja, fica selecionado para aceitar Espaço. Os botões do menu e de
+  reinício têm pelo menos 44 pixels lógicos de altura para facilitar o toque.
+
+export_presets.cfg
+  Foi adicionado o perfil Android, com saída EvoBird.apk, identificador
+  com.ctrl3d.evobird e suporte a processadores ARM de 32 e 64 bits.
+
+3. COMO VERIFICAR NO GODOT
+
+1) Abra project.godot e pressione F6 somente se quiser testar a cena
+   aberta. Para testar o fluxo desde o menu, pressione F5.
+2) Pressione Espaço no menu e depois use Espaço para pular.
+3) Deixe a ave colidir. Confira se o contador parou e pressione Espaço.
+   O jogo deve voltar ao Jurássico com a contagem perto de 150 milhões.
+4) Execute de novo e repita usando apenas o botão esquerdo do mouse.
+5) No Android, repita tocando em Jogar, tocando na área da partida para
+   pular e tocando em Reiniciar após uma colisão. Confira o modo paisagem.
+6) Ao chegar aos créditos, use Jogar novamente para voltar ao Jurássico.
+
+Foram simulados Espaço, clique e toque no Godot sem abrir uma janela.
+Esses testes cobrem o menu, o pulo e o reinício na primeira fase.
+O botão Jogar novamente também foi testado com toque simulado.
+O teste em aparelho físico ainda está pendente.
+
+4. COMO GERAR O APK ANDROID
+
+1) No Godot, abra Editor > Gerenciar modelos de exportação e instale
+   os modelos que correspondem à versão exata do editor. Neste projeto,
+   a versão usada para verificar as mudanças foi a 4.7.2.
+2) Instale o Android SDK com Platform-Tools e Build-Tools e instale um
+   JDK compatível. A documentação do Godot 4.7 recomenda o OpenJDK 17.
+3) Abra Editor > Configurações do Editor > Exportar > Android. Informe
+   as pastas do Java SDK e do Android SDK.
+4) Abra Projeto > Exportar, selecione Android e clique em Exportar
+   projeto. Para testar no celular, exporte em modo de depuração e
+   salve como EvoBird.apk.
+5) Instale o APK em um aparelho de teste e siga o roteiro da seção 3.
+
+O editor encontrou o perfil Android, mas a exportação parou porque
+faltavam os modelos Android para Godot 4.7.2 e os caminhos do Java SDK
+e do Android SDK estavam ausentes ou inválidos. O APK não foi gerado.
+
+Documentação oficial do Godot 4.7 sobre exportação Android
+https://docs.godotengine.org/en/4.7/tutorials/export/exporting_for_android.html

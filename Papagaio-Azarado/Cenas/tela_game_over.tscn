@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://uxpdwkpirbau"]
+
+[ext_resource type="Script" uid="uid://c0d7ko752sl42" path="res://Scripts/tela_game_over.gd" id="1_6cf1h"]
+[ext_resource type="Texture2D" uid="uid://bqyk7x7cbie20" path="res://imagens/imagem menu.png" id="2_eeyfg"]
+
+[sub_resource type="Theme" id="Theme_eeyfg"]
+default_font_size = 11
+
+[node name="TelaGameOver" type="Control" unique_id=110810710]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6cf1h")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1966184998]
+layout_mode = 0
+offset_right = 1672.0
+offset_bottom = 1096.6666
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_eeyfg")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1098102505]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1263316885]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1516215232]
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=559526930]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Obrigado por jogar!
+Preserve o meio ambiente!"
+horizontal_alignment = 1
+
+[node name="CampoNome" type="LineEdit" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=733517370]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=557219850]
+layout_mode = 2
+
+[node name="LabelPontos" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=2068947086]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+
+[node name="LabelTempo" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=2105539046]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+
+[node name="BotaoSalvar" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=110325190]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Salvar"
+
+[node name="LabelStatus" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1837936219]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+
+[node name="TituloRanking" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=785206982]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Ranking Atual"
+horizontal_alignment = 1
+
+[node name="ListaRanking" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1101974055]
+layout_mode = 2
+theme = SubResource("Theme_eeyfg")
+alignment = 1
+
+[node name="BotaoReiniciar" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=56132391]
+layout_mode = 2
+text = "Reiniciar"

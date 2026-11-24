@@ -1,0 +1,16 @@
+﻿[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Cenas/inimigo_atirador.gd" id="1"]
+[ext_resource type="PackedScene" path="res://Cenas/tiro.tscn" id="2"]
+[ext_resource type="Texture2D" path="res://imagens/caçador.png" id="3"]
+
+[node name="InimigoAtirador" type="Area2D"]
+script = ExtResource("1")
+cena_tiro = ExtResource("2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.141, 0.1735)
+texture = ExtResource("3")
+
+[node name="PontoTiro" type="Marker2D" parent="."]
+position = Vector2(13, 0)

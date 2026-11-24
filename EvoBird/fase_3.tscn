@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://cug3g5g525od7"]
+
+[ext_resource type="Script" uid="uid://cpaj5ht2mwetg" path="res://scriptFases.gd" id="1_x5l0n"]
+[ext_resource type="PackedScene" uid="uid://cgsr3fe2p1fgt" path="res://fase_4.tscn" id="2_7gpko"]
+[ext_resource type="PackedScene" uid="uid://dqgx5luu8qlo8" path="res://obstaculo_4.tscn" id="2_8dtid"]
+[ext_resource type="PackedScene" uid="uid://dyrgsjgfyue3t" path="res://Vegavis.tscn" id="3_8dtid"]
+[ext_resource type="PackedScene" uid="uid://dkkhq4orf8o6l" path="res://obstaculo 8.tscn" id="4_7gpko"]
+[ext_resource type="Texture2D" uid="uid://5532tlwsy5if" path="res://fundo paleogeno 2.png" id="4_8dtid"]
+[ext_resource type="FontFile" uid="uid://bbn6qy6t8h5x0" path="res://fonts/paleogeno/Silent Christmas-Personal Use.otf" id="7_x5l0n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru54l"]
+size = Vector2(3463, 41)
+
+[node name="fase 3" type="Node2D"]
+script = ExtResource("1_x5l0n")
+proxima_fase = ExtResource("2_7gpko")
+ano_para_proxima_fase = 67000
+anos_por_segundo = 800000.0
+cenas_obstaculos = Array[PackedScene]([ExtResource("2_8dtid"), ExtResource("4_7gpko")])
+cena_jogador = ExtResource("3_8dtid")
+
+[node name="Fundo" type="Sprite2D" parent="."]
+position = Vector2(339.5, 179.59549)
+scale = Vector2(0.37936866, 0.39593124)
+texture = ExtResource("4_8dtid")
+
+[node name="PisoFisico" type="StaticBody2D" parent="."]
+position = Vector2(147, 345)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PisoFisico"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_ru54l")
+
+[node name="TimerObstaculos" type="Timer" parent="."]
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="LabelAnos" type="Label" parent="Interface"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+autoplay = true
+
+[node name="SpawnTerrestre" type="Marker2D" parent="."]
+position = Vector2(724, 298)
+
+[node name="SpawnVoador" type="Marker2D" parent="."]
+position = Vector2(715, 200)
+
+[node name="Obstaculos" type="Node2D" parent="."]
+
+[node name="SpawnJogador" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(57, 280)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 265.0
+offset_top = 61.0
+offset_right = 423.0
+offset_bottom = 113.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_x5l0n")
+theme_override_font_sizes/font_size = 48
+text = "Paleogeno"
+horizontal_alignment = 1
+vertical_alignment = 1

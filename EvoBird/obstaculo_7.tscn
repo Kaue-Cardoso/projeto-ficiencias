@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://cled7ire51tg4"]
+
+[ext_resource type="Script" uid="uid://ctmf5sk2lm1o2" path="res://obstaculo.gd" id="1_6adyk"]
+[ext_resource type="Texture2D" uid="uid://dvrf40lfhwwao" path="res://é um avião é um heroi não é um chupacabra.png" id="2_5ceyp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwd0w"]
+size = Vector2(277, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrwqf"]
+atlas = ExtResource("2_5ceyp")
+region = Rect2(0, 0, 313, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4pws"]
+atlas = ExtResource("2_5ceyp")
+region = Rect2(313, 0, 313, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5tv0"]
+atlas = ExtResource("2_5ceyp")
+region = Rect2(626, 0, 313, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwrbm"]
+atlas = ExtResource("2_5ceyp")
+region = Rect2(939, 0, 313, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptp3i"]
+atlas = ExtResource("2_5ceyp")
+region = Rect2(0, 627, 313, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7fxh"]
+atlas = ExtResource("2_5ceyp")
+region = Rect2(313, 627, 313, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1fus"]
+atlas = ExtResource("2_5ceyp")
+region = Rect2(626, 627, 313, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee78g"]
+atlas = ExtResource("2_5ceyp")
+region = Rect2(939, 627, 313, 627)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ml2mt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrwqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4pws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5tv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwrbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptp3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7fxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1fus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee78g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Obstaculo 7" type="Area2D" unique_id=1145610404]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_6adyk")
+voador = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=819157288]
+position = Vector2(1.5, 23)
+shape = SubResource("RectangleShape2D_nwd0w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1333805816]
+sprite_frames = SubResource("SpriteFrames_ml2mt")
+autoplay = "default"
+frame = 1
+frame_progress = 0.7259488
+flip_h = true

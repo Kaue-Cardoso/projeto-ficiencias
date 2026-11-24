@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://qylma18d1oh4"]
+
+[ext_resource type="Script" uid="uid://cpaj5ht2mwetg" path="res://scriptFases.gd" id="1_5s2kv"]
+[ext_resource type="PackedScene" uid="uid://celok51l7r626" path="res://Archaeopteryx.tscn" id="1_ru54l"]
+[ext_resource type="PackedScene" uid="uid://f6agoncdbwqc" path="res://fase_2.tscn" id="2_hffw0"]
+[ext_resource type="Texture2D" uid="uid://b1twoln3ba7f4" path="res://fundo jurasico.png" id="2_tggv0"]
+[ext_resource type="PackedScene" uid="uid://drlyfiwutuac2" path="res://obstaculo.tscn" id="3_urf38"]
+[ext_resource type="PackedScene" uid="uid://ba0y7cpsnt8m1" path="res://obistaculo 2.tscn" id="4_ny45v"]
+[ext_resource type="FontFile" uid="uid://2m81bcbpbohj" path="res://fonts/jurassico/Blacklisted.ttf" id="7_hffw0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru54l"]
+size = Vector2(3463, 41)
+
+[node name="fase 1" type="Node2D"]
+script = ExtResource("1_5s2kv")
+proxima_fase = ExtResource("2_hffw0")
+ano_para_proxima_fase = 50000000
+anos_por_segundo = 5000000.0
+cenas_obstaculos = Array[PackedScene]([ExtResource("3_urf38"), ExtResource("4_ny45v")])
+cena_jogador = ExtResource("1_ru54l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(340, 206.5)
+scale = Vector2(0.40550244, 0.44102016)
+texture = ExtResource("2_tggv0")
+
+[node name="PisoFisico" type="StaticBody2D" parent="."]
+position = Vector2(147, 345)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PisoFisico"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_ru54l")
+
+[node name="TimerObstaculos" type="Timer" parent="."]
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="LabelAnos" type="Label" parent="Interface"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+autoplay = true
+
+[node name="SpawnTerrestre" type="Marker2D" parent="."]
+position = Vector2(713, 300)
+
+[node name="SpawnVoador" type="Marker2D" parent="."]
+position = Vector2(715, 200)
+
+[node name="Obstaculos" type="Node2D" parent="."]
+
+[node name="SpawnJogador" type="Marker2D" parent="."]
+position = Vector2(57, 280)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 278.0
+offset_top = 57.0
+offset_right = 416.0
+offset_bottom = 102.0
+theme_override_colors/font_color = Color(0.88378114, 0.40331054, 3.85046e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_hffw0")
+theme_override_font_sizes/font_size = 32
+text = "Jurassico"
+horizontal_alignment = 1
+vertical_alignment = 1

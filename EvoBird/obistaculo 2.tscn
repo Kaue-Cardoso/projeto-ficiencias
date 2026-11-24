@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://ba0y7cpsnt8m1"]
+
+[ext_resource type="Script" uid="uid://ctmf5sk2lm1o2" path="res://obstaculo.gd" id="1_j4kwo"]
+[ext_resource type="Texture2D" uid="uid://cnqnxbhe2blvr" path="res://filhote correndo.png" id="2_j4kwo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ioltj"]
+size = Vector2(63, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7yfs"]
+atlas = ExtResource("2_j4kwo")
+region = Rect2(0, 241, 271, 241)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4xlp"]
+atlas = ExtResource("2_j4kwo")
+region = Rect2(271, 241, 271, 241)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cc36"]
+atlas = ExtResource("2_j4kwo")
+region = Rect2(542, 241, 271, 241)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwp54"]
+atlas = ExtResource("2_j4kwo")
+region = Rect2(813, 241, 271, 241)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idbvo"]
+atlas = ExtResource("2_j4kwo")
+region = Rect2(1084, 241, 271, 241)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ioltj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7yfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4xlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cc36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwp54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idbvo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Obstaculo pequeno" type="Area2D" unique_id=2015847977]
+script = ExtResource("1_j4kwo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=454674847]
+position = Vector2(-0.5, -17.5)
+shape = SubResource("RectangleShape2D_ioltj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=452347390]
+position = Vector2(1.3205721, -19)
+scale = Vector2(0.29756877, 0.32365146)
+sprite_frames = SubResource("SpriteFrames_ioltj")
+autoplay = "default"
+frame_progress = 0.5057701
+flip_h = true

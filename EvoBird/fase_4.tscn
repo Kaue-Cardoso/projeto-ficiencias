@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cgsr3fe2p1fgt"]
+
+[ext_resource type="Script" uid="uid://cpaj5ht2mwetg" path="res://scriptFases.gd" id="1_5io7x"]
+[ext_resource type="PackedScene" uid="uid://nvaom0hs6oc6" path="res://obstaculo_5.tscn" id="2_1lkm3"]
+[ext_resource type="PackedScene" uid="uid://150mr1wjcoyj" path="res://fase_5.tscn" id="2_jbymy"]
+[ext_resource type="Texture2D" uid="uid://4vdthmwdxk1a" path="res://fundo era glacial 2.png" id="3_5io7x"]
+[ext_resource type="PackedScene" uid="uid://0csfga4wuxq2" path="res://Chendytes lawi.tscn" id="3_jbymy"]
+[ext_resource type="FontFile" uid="uid://dvdqqyug1mggp" path="res://fonts/era glacial/SNOWBLUE.otf" id="6_jbymy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru54l"]
+size = Vector2(3463, 41)
+
+[node name="fase 4" type="Node2D" unique_id=53876358]
+script = ExtResource("1_5io7x")
+proxima_fase = ExtResource("2_jbymy")
+ano_para_proxima_fase = 2400
+anos_por_segundo = 100.0
+cenas_obstaculos = Array[PackedScene]([ExtResource("2_1lkm3")])
+cena_jogador = ExtResource("3_jbymy")
+
+[node name="Fundo" type="Sprite2D" parent="." unique_id=1456578683]
+position = Vector2(339.5, 179.59549)
+scale = Vector2(0.37936866, 0.39593124)
+texture = ExtResource("3_5io7x")
+
+[node name="PisoFisico" type="StaticBody2D" parent="." unique_id=1501304376]
+position = Vector2(147, 345)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PisoFisico" unique_id=1105553560]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_ru54l")
+
+[node name="TimerObstaculos" type="Timer" parent="." unique_id=1531785087]
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=730993808]
+
+[node name="LabelAnos" type="Label" parent="Interface" unique_id=760959798]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=728608457]
+autoplay = true
+
+[node name="SpawnTerrestre" type="Marker2D" parent="." unique_id=1845032664]
+position = Vector2(724, 295)
+
+[node name="SpawnVoador" type="Marker2D" parent="." unique_id=203832331]
+position = Vector2(715, 200)
+
+[node name="Obstaculos" type="Node2D" parent="." unique_id=1100478328]
+
+[node name="SpawnJogador" type="Marker2D" parent="." unique_id=1938650662]
+unique_name_in_owner = true
+position = Vector2(79, 282)
+
+[node name="Label" type="Label" parent="." unique_id=2076227246]
+offset_left = 178.0
+offset_top = 63.0
+offset_right = 514.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(0.41738638, 0.6363405, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("6_jbymy")
+theme_override_font_sizes/font_size = 42
+text = "era  glacial"
+horizontal_alignment = 1
+vertical_alignment = 1

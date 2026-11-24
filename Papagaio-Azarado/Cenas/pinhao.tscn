@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://6ivuy4fpktus"]
+
+[ext_resource type="Script" uid="uid://cg78bo7cgsjo5" path="res://Cenas/pinhao.gd" id="1_2yoxt"]
+[ext_resource type="Texture2D" uid="uid://bacqfolyuvyl" path="res://imagens/Pinhao.png" id="2_gmalj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aono3"]
+size = Vector2(24, 26)
+
+[node name="Pinhao" type="Area2D" unique_id=2108607861]
+z_index = 1
+script = ExtResource("1_2yoxt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=662380346]
+position = Vector2(9, -7)
+shape = SubResource("RectangleShape2D_aono3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1472303733]
+position = Vector2(7.4140596, -8.953127)
+scale = Vector2(0.051971193, 0.05270633)
+texture = ExtResource("2_gmalj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

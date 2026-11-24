@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bqbotm6qj7i4s"]
+
+[ext_resource type="Texture2D" uid="uid://dqeqd4f3fjsin" path="res://fundo cretáceo.png" id="1_hupdv"]
+
+[node name="Node2D" type="Node2D" unique_id=1237923906]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=525199013]
+position = Vector2(339.99997, 160)
+scale = Vector2(0.31307548, 0.44198897)
+texture = ExtResource("1_hupdv")

@@ -1,0 +1,143 @@
+[gd_scene load_steps=9 format=3 uid="uid://blqv2uct34ga8"]
+
+[ext_resource type="Texture2D" uid="uid://d0loww3ufjwro" path="res://creditos.png" id="1_ilafw"]
+[ext_resource type="Texture2D" uid="uid://dquh6mkf6dw2y" path="res://joia.png" id="2_fb38b"]
+[ext_resource type="Texture2D" uid="uid://d2k6bo3s4vb2r" path="res://2 passaro agacha.png" id="3_uc6c3"]
+[ext_resource type="Texture2D" uid="uid://cv4340ipcjd4w" path="res://protagonista.png" id="4_5h62i"]
+[ext_resource type="Texture2D" uid="uid://c1uuvddj5o00r" path="res://3 passaro andando 2.png" id="5_u64um"]
+[ext_resource type="Texture2D" uid="uid://dqad6srvg1mom" path="res://4 passaro nada 2.png" id="6_2votg"]
+[ext_resource type="Texture2D" uid="uid://d0arbnraup86h" path="res://5 pato anda prototipo.png" id="7_hp73q"]
+
+[ext_resource type="Script" path="res://button.gd" id="8_jogar"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ilafw")
+expand_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 0
+offset_left = 145.0
+offset_top = 60.0
+offset_right = 545.0
+offset_bottom = 260.0
+color = Color(0.25490198, 0.25490198, 0.25490198, 0.5254902)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Obrigado por jogar!!!!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Desenvolvido por:"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Kenzo Kamatani e Leonardo de Almeida"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Um projeto "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "CTRL3D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JogarNovamente" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "Jogar novamente"
+script = ExtResource("8_jogar")
+
+[node name="Joia" type="Sprite2D" parent="."]
+position = Vector2(122.00001, 273)
+scale = Vector2(0.31976745, 0.31279075)
+texture = ExtResource("2_fb38b")
+
+[node name="Joia2" type="Sprite2D" parent="."]
+position = Vector2(593.00006, 270)
+scale = Vector2(0.31976745, 0.31279075)
+texture = ExtResource("2_fb38b")
+flip_h = true
+
+[node name="Joia5" type="Sprite2D" parent="."]
+position = Vector2(500.00006, 51)
+scale = Vector2(0.31976745, 0.31279075)
+texture = ExtResource("2_fb38b")
+flip_h = true
+
+[node name="Joia4" type="Sprite2D" parent="."]
+position = Vector2(587, 207)
+scale = Vector2(0.31976745, 0.31279075)
+texture = ExtResource("2_fb38b")
+flip_h = true
+
+[node name="Joia3" type="Sprite2D" parent="."]
+position = Vector2(98.00001, 173)
+scale = Vector2(0.31976745, 0.31279075)
+texture = ExtResource("2_fb38b")
+
+[node name="2PassaroAgacha" type="Sprite2D" parent="."]
+position = Vector2(64, 260.00003)
+scale = Vector2(0.08968099, 0.1215668)
+texture = ExtResource("3_uc6c3")
+
+[node name="Protagonista" type="Sprite2D" parent="."]
+position = Vector2(638, 276.00003)
+scale = Vector2(0.4012915, 0.46408838)
+texture = ExtResource("4_5h62i")
+flip_h = true
+hframes = 8
+
+[node name="3PassaroAndando2" type="Sprite2D" parent="."]
+position = Vector2(52.000004, 172.89064)
+scale = Vector2(0.29512778, 0.24845496)
+texture = ExtResource("5_u64um")
+hframes = 4
+vframes = 2
+
+[node name="4PassaroNada2" type="Sprite2D" parent="."]
+position = Vector2(637, 210.00002)
+scale = Vector2(0.092304595, 0.093500786)
+texture = ExtResource("6_2votg")
+
+[node name="5PatoAndaPrototipo" type="Sprite2D" parent="."]
+position = Vector2(540, 42)
+scale = Vector2(0.24193548, 0.22928177)
+texture = ExtResource("7_hp73q")
+hframes = 5

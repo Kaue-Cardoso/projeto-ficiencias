@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bfc0stoapox16"]
+
+[ext_resource type="Script" uid="uid://bnosrd7jx0dmx" path="res://Cenas/tiro.gd" id="1_po8pd"]
+[ext_resource type="Texture2D" uid="uid://cn1jc5rup8lmn" path="res://imagens/TIRO DO CACADOR PNG.png" id="2_v0468"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ea3k"]
+
+[node name="Tiro" type="Area2D" unique_id=642999320]
+script = ExtResource("1_po8pd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=96537482]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_v0468")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1376516039]
+position = Vector2(9, 1)
+shape = SubResource("CircleShape2D_3ea3k")

@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://smc6f7ryd686"]
+
+[ext_resource type="Texture2D" uid="uid://du4jhnfbf5t1t" path="res://juninho fundo menu.png" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://gaouyb1oow87" path="res://button.gd" id="2_ouk20"]
+[ext_resource type="Script" uid="uid://bq8i6hox57ixn" path="res://button_2.gd" id="3_mae5d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsb4k"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.07140473, 0.62464434, 0.8795575, 0.90588236)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lti8b"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.68235296, 0.11764706, 0, 0.92941177)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Menu" type="Control" unique_id=1668706458]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1157309078]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -10.0
+offset_right = 6.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lti8b")
+expand_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1862064853]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.003964425
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=572482569]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1799811793]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9537104, 0.79748505, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9764706)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 74
+text = "Evobird"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1376594001]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_vsb4k")
+text = "Jogar"
+script = ExtResource("2_ouk20")
+
+[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer" unique_id=161390]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_lti8b")
+text = "Sair"
+script = ExtResource("3_mae5d")

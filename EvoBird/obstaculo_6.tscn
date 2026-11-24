@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://i02jt45agers"]
+
+[ext_resource type="Script" uid="uid://ctmf5sk2lm1o2" path="res://obstaculo.gd" id="1_870jq"]
+[ext_resource type="Texture2D" uid="uid://bbjml6sqpwcd7" path="res://gato.png" id="2_8pkq7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_870jq"]
+size = Vector2(107, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egb4b"]
+atlas = ExtResource("2_8pkq7")
+region = Rect2(0, 0, 362, 543)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7semo"]
+atlas = ExtResource("2_8pkq7")
+region = Rect2(362, 0, 362, 543)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohxho"]
+atlas = ExtResource("2_8pkq7")
+region = Rect2(724, 0, 362, 543)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdnae"]
+atlas = ExtResource("2_8pkq7")
+region = Rect2(1086, 0, 362, 543)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4yih2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egb4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7semo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohxho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdnae")
+}],
+"loop": true,
+"name": &"correr",
+"speed": 5.0
+}]
+
+[node name="Obstaculo 6" type="Area2D" unique_id=1145610404]
+script = ExtResource("1_870jq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=845231621]
+position = Vector2(11.5, -17)
+shape = SubResource("RectangleShape2D_870jq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1897419560]
+position = Vector2(20.284538, -48.605114)
+scale = Vector2(0.4104118, 0.34031266)
+sprite_frames = SubResource("SpriteFrames_4yih2")
+animation = &"correr"
+autoplay = "correr"
+frame_progress = 0.80834943
+flip_h = true

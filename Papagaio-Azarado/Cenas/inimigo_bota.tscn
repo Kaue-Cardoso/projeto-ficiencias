@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ltfu6dx86n4s"]
+
+[ext_resource type="Script" uid="uid://dwchgb1hls2ro" path="res://Scripts/inimigo_bota.gd" id="1_5sdva"]
+[ext_resource type="Texture2D" uid="uid://dm8ld31v4yh72" path="res://imagens/bota.png" id="2_thkuw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s8s3j"]
+radius = 11.510864
+
+[node name="inimigo bota" type="Area2D" unique_id=85727204]
+position = Vector2(10, 1)
+script = ExtResource("1_5sdva")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1785004797]
+position = Vector2(-5.5, -11.5)
+shape = SubResource("CircleShape2D_s8s3j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=119604185]
+position = Vector2(-5.5000005, -11)
+scale = Vector2(0.054, 0.064)
+texture = ExtResource("2_thkuw")

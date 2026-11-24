@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://btuaweul2tqgd"]
+
+[ext_resource type="Script" uid="uid://bi47sd47ssdaq" path="res://Scripts/inimigo.gd" id="1_fqavd"]
+[ext_resource type="Texture2D" uid="uid://3ep8js806w4n" path="res://imagens/gaiola.png" id="2_eberh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qns0q"]
+size = Vector2(36, 35)
+
+[node name="inimigo" type="Area2D" unique_id=68567255]
+script = ExtResource("1_fqavd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=375616086]
+position = Vector2(2, 0.5)
+shape = SubResource("RectangleShape2D_qns0q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1181654471]
+position = Vector2(1.9999998, 0.99999994)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_eberh")

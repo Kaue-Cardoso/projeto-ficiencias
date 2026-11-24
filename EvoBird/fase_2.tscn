@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://f6agoncdbwqc"]
+
+[ext_resource type="Script" uid="uid://cpaj5ht2mwetg" path="res://scriptFases.gd" id="1_xe686"]
+[ext_resource type="PackedScene" uid="uid://dm17j3yhni1sy" path="res://obstaculo_3.tscn" id="2_47a2j"]
+[ext_resource type="PackedScene" uid="uid://cug3g5g525od7" path="res://fase_3.tscn" id="2_iolds"]
+[ext_resource type="PackedScene" uid="uid://3wmybhdlbiyu" path="res://Ichthyornis.tscn" id="3_47a2j"]
+[ext_resource type="Texture2D" uid="uid://y5cuo5a2ddxt" path="res://fundo cretaceo 2.png" id="4_4823c"]
+[ext_resource type="PackedScene" uid="uid://cled7ire51tg4" path="res://obstaculo_7.tscn" id="4_iolds"]
+[ext_resource type="FontFile" uid="uid://ioti3ondu6xw" path="res://fonts/cretaceo/BroncoPersonalUse.ttf" id="7_u0tcw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru54l"]
+size = Vector2(3463, 41)
+
+[node name="fase 2" type="Node2D"]
+script = ExtResource("1_xe686")
+proxima_fase = ExtResource("2_iolds")
+ano_para_proxima_fase = 27000000
+anos_por_segundo = 1000000.0
+cenas_obstaculos = Array[PackedScene]([ExtResource("2_47a2j"), ExtResource("4_iolds")])
+cena_jogador = ExtResource("3_47a2j")
+
+[node name="Fundo" type="Sprite2D" parent="."]
+position = Vector2(347.00003, 158.25002)
+scale = Vector2(0.3169317, 0.44406083)
+texture = ExtResource("4_4823c")
+
+[node name="PisoFisico" type="StaticBody2D" parent="."]
+position = Vector2(147, 345)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PisoFisico"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_ru54l")
+
+[node name="TimerObstaculos" type="Timer" parent="."]
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="LabelAnos" type="Label" parent="Interface"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+autoplay = true
+
+[node name="SpawnTerrestre" type="Marker2D" parent="."]
+position = Vector2(724, 295)
+
+[node name="SpawnVoador" type="Marker2D" parent="."]
+position = Vector2(715, 200)
+
+[node name="Obstaculos" type="Node2D" parent="."]
+
+[node name="SpawnJogador" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(57, 280)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 267.0
+offset_top = 58.0
+offset_right = 425.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(4.3317677e-06, 0.6802523, 0.22911209, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_u0tcw")
+theme_override_font_sizes/font_size = 48
+text = "cretaceo"
+horizontal_alignment = 1
+vertical_alignment = 1

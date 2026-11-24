@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://drlyfiwutuac2"]
+
+[ext_resource type="Script" uid="uid://ctmf5sk2lm1o2" path="res://obstaculo.gd" id="1_q7004"]
+[ext_resource type="Texture2D" uid="uid://duc6walljlnrq" path="res://bixão.png" id="2_phkyr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ioltj"]
+size = Vector2(64.876144, 56.80445)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61ayu"]
+atlas = ExtResource("2_phkyr")
+region = Rect2(0, 0, 541, 363)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kwqw"]
+atlas = ExtResource("2_phkyr")
+region = Rect2(541, 0, 541, 363)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv3oh"]
+atlas = ExtResource("2_phkyr")
+region = Rect2(1082, 0, 541, 363)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o4eu"]
+atlas = ExtResource("2_phkyr")
+region = Rect2(1623, 0, 541, 363)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulmx7"]
+atlas = ExtResource("2_phkyr")
+region = Rect2(0, 363, 541, 363)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k28lx"]
+atlas = ExtResource("2_phkyr")
+region = Rect2(541, 363, 541, 363)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7rjb"]
+atlas = ExtResource("2_phkyr")
+region = Rect2(1082, 363, 541, 363)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlb17"]
+atlas = ExtResource("2_phkyr")
+region = Rect2(1623, 363, 541, 363)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ioltj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61ayu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kwqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv3oh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o4eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulmx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k28lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7rjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlb17")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Obstaculo" type="Area2D" unique_id=2015847977]
+script = ExtResource("1_q7004")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=454674847]
+position = Vector2(-35.5, -19.204533)
+rotation = -3.1415925
+scale = Vector2(1.2177048, -1.330722)
+shape = SubResource("RectangleShape2D_ioltj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=452347390]
+position = Vector2(-14.333863, -12.100615)
+scale = Vector2(0.2723332, 0.36859164)
+sprite_frames = SubResource("SpriteFrames_ioltj")
+autoplay = "default"
+frame_progress = 0.06843559
