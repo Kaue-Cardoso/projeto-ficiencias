@@ -68,6 +68,7 @@ var cenas_validas: Array[PackedScene] = []
 @export var iniciar_modo_nave: bool = false
 
 var jogador: Jogador
+var botao_pular: Button
 
 
 @onready var obstaculos = $Obstaculos
@@ -84,6 +85,8 @@ func _ready():
 	randomize()
 
 	criar_jogador()
+	if jogador != null:
+		criar_botao_pular()
 	atualizar_anos()
 	
 	mostrar_label_fase() # Mostra por 3 segundos
@@ -295,7 +298,23 @@ func game_over():
 	timer.stop()
 
 	obstaculos.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
+	if botao_pular != null:
+		botao_pular.hide()
 	$Interface.call_deferred("add_child", TELA_FIM_DE_JOGO.instantiate())
+
+
+func criar_botao_pular() -> void:
+	botao_pular = Button.new()
+	botao_pular.name = "BotaoPular"
+	botao_pular.text = "Pular"
+	botao_pular.focus_mode = Control.FOCUS_NONE
+	botao_pular.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
+	botao_pular.offset_left = -112.0
+	botao_pular.offset_right = -12.0
+	botao_pular.offset_top = 12.0
+	botao_pular.offset_bottom = 60.0
+	botao_pular.button_down.connect(jogador.solicitar_pulo)
+	$Interface.add_child(botao_pular)
 	
 	
 	

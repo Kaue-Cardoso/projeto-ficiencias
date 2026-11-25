@@ -32,7 +32,7 @@ signal morreu
 var modo_nave: bool = false
 var vivo: bool = true
 var toque_pressionado: bool = false
-var pulo_por_toque_pendente: bool = false
+var pulo_pendente: bool = false
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -41,7 +41,11 @@ func _input(evento: InputEvent):
 	if vivo and evento is InputEventScreenTouch and evento.index == 0:
 		toque_pressionado = evento.pressed
 		if evento.pressed:
-			pulo_por_toque_pendente = true
+			solicitar_pulo()
+
+
+func solicitar_pulo() -> void:
+	pulo_pendente = true
 
 
 # =====================================
@@ -58,7 +62,7 @@ func _physics_process(delta):
 	else:
 		controlar_corrida(delta)
 
-	pulo_por_toque_pendente = false
+	pulo_pendente = false
 	move_and_slide()
 
 	if modo_nave:
@@ -80,7 +84,7 @@ func controlar_corrida(delta):
 	velocity.x = 0
 	velocity.y += gravidade * delta
 
-	if is_on_floor() and (Input.is_action_just_pressed("pular") or pulo_por_toque_pendente):
+	if is_on_floor() and (Input.is_action_just_pressed("pular") or pulo_pendente):
 		velocity.y = forca_pulo
 
 
